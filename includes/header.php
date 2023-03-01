@@ -14,7 +14,7 @@
     <!-- favicon  -->
     <link rel="icon" href="images/randomp.png"/>
     <!-- Link Fontawesome -->
-    <link rel="stylesheet" href="fontawesome/css/all.min.css"/>
+<!--    <link rel="stylesheet" href="fontawesome/css/all.min.css"/>-->
     <!--Bulma Css Frameworks  -->
     <link rel="stylesheet" href="bootstrap-css/css/bootstrap.css"/>
     <link rel="stylesheet" href="bootstrap-css/js/bootstrap.js"/>
