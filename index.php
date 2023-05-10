@@ -1,12 +1,14 @@
 <?php include ("includes/header.php"); ?>
 
+
+
 <!--Header Section -->
 
 <section id="header-part">
 
     <div class="container">
-       <div class="logo-here">
-           <img src="images/randomp.png"/>
+       <div class="logo-here pt-3">
+          <h3 style="color: green"> BMI Calculator</h3>
        </div>
     </div>
 
@@ -18,62 +20,60 @@
 
       <div class="main-content-start">
           <div class="text-content">
-              <h2>Random Password Generator </h2>
+              <h2>BMI Calculator for Health </h2>
               <p>
-                  Create strong and secure passwords to keep your account safe online
+                  Create your bmi with online
               </p>
           </div>
           <div class="dynamic-content-wrapper">
-             <div class="dynamic-image">
-                 <img src="images/download.svg"/>
+             <div class="dynamic-image ">
+                 <img src="images/BMI.png" class="img-fluid"/>
              </div>
               <div class="password-gen-form">
 
-                  <h5 class="text-center text-primary"> <?php echo strtoupper("Im here to generate password for you")?></h5>
 
-          <?php insertPassword(); ?>
 
-                 <form action="" method="POST">
+                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="input_number" placeholder="please provided me a length" value="<?php echo $password; ?>"/>
+                        <label for="weight">Weight in KG</label>
+                        <input type="number" name="user_weight" class="form-control" placeholder="weight in (kg)">
                     </div>
-                     <div class="form-check form-check-inline">
-                         <label for="Types"> Character Types : </label>
-                     </div>
-                     <div class="form-check form-check-inline">
-                         <label for="capital">
-                             <input type="checkbox" name="capital_letter"> ABC
-                         </label>
-                     </div>
-                     <div class="form-check form-check-inline">
-                         <label for="small">
-                             <input type="checkbox" name="small_letter"> abc
-                         </label>
-                     </div>
-                     <div class="form-check form-check-inline">
-                         <label for="number">
-                             <input type="checkbox" name="number"> 123
-                         </label>
-                     </div>
-                     <div class="form-check form-check-inline">
-                         <label for="special">
-                             <input type="checkbox" name="special"> !@#$
-                         </label>
-                     </div>
-
-
                      <div class="form-group">
-                         <input type="submit" name="submit" value="Generate For Me" class="form-control btn btn-primary">
+                         <label for="weight">Height in m</label>
+                         <input type="text" name="user_height" class="form-control" placeholder="height in (m)">
                      </div>
+                     <button type="submit" class="form-control border-primary bg-success text-white" name="submit">Calculate BMI</button>
                  </form>
 
+                  <div class="dropdown-divider"></div>
+                  <div class="answer-area text-center text-danger">
+                      <h5> Your BMI is Shown in Here After Submit</h5>
+                      <?php
 
-                  <div class="count-area">
+                      if(isset($_POST['submit'])){
+                         $user_weight = $_POST['user_weight'];
+                         $user_height = $_POST['user_height'];
+                         if($user_height === "" && $user_weight === ""){
+                             echo "NO Data Found";
+                         }else{
+                             $user_bmi = ($user_weight / ($user_height * $user_height));
+                             echo ceil($user_bmi);
+                             if($user_bmi === ""){
+                                 echo "BMI not exits";
+                             }else if($user_bmi < 18.0 ){
+                                 echo "<h5 class='text-success'> UNDER WEIGHT => Score = $user_bmi </h5>";
+                             }else if($user_bmi > 18.0 && $user_bmi < 24.9 ){
+                                 echo "<h5 class='text-success'> NORMAL WEIGHT => Score = $user_bmi </h5>";
+                             }else if($user_bmi > 25.0 && $user_bmi < 29.9  ){
+                                 echo "<h5 class='text-success'> OVER WEIGHT => Score = $user_bmi </h5>";
+                             }else if($user_bmi > 30 ){
+                                 echo "<h5 class='text-success'> OBESE => Score = $user_bmi </h5>";
+                             }
+                         }
+                      }
 
-<?php countPassword();  ?>
-
+                      ?>
                   </div>
-
               </div>
           </div>
       </div>

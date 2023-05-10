@@ -1,5 +1,7 @@
 <?php ob_start(); ?>
-<?php include ("includes/database.php"); ?>
+<?php
+//include ("includes/database.php");
+?>
 <?php include ("functions.php"); ?>
 <!doctype html>
 <html lang="en">
@@ -8,11 +10,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Random Password Generator Tools</title>
+    <title>BMI Calculator </title>
     <!-- Linking Css-->
     <link rel="stylesheet" href="css/style.css"/>
     <!-- favicon  -->
-    <link rel="icon" href="images/randomp.png"/>
+    <link rel="icon" href="images/BMI.png"/>
     <!-- Link Fontawesome -->
 <!--    <link rel="stylesheet" href="fontawesome/css/all.min.css"/>-->
     <!--Bulma Css Frameworks  -->
